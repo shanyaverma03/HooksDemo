@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { Component } from "react";
 
 import "./State.css";
 
-const State = () => {
-  const [count, setCount] = useState(0);
+class State extends Component {
+  constructor() {
+    super();
+    this.state = { count: 0 };
+  }
 
-  const increaseCount = () => {
-    setCount((prevValue) => prevValue + 1);
-    console.log("The count is", count);
-  };
-  return (
-    <div className="wrapper">
-      <button onClick={increaseCount}>Increase Count</button>
-      <section>{count}</section>
-    </div>
-  );
-};
+  increaseCount() {
+    this.setState((prevValue) => {
+      return { count: prevValue.count + 1 };
+    });
+    console.log("The count is", this.state.count);
+  }
+
+  render() {
+    return (
+      <div className="wrapper">
+        <button onClick={this.increaseCount.bind(this)}>Increase Count</button>
+        <section>{this.state.count}</section>
+      </div>
+    );
+  }
+}
 
 export default State;
