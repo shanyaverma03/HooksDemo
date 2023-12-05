@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/ContextDemo/Header";
 import Homepage from "./components/ContextDemo/Homepage";
 import AuthContext from "./store/AuthContext";
+import StateReducer from "./components/ReducerDemo/StateReducer";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -11,10 +12,11 @@ function App() {
   );
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-      <Header />
-      <Homepage />
-    </AuthContext.Provider>
+    // <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    //   <Header />
+    //   <Homepage />
+    // </AuthContext.Provider>
+    <StateReducer />
   );
 }
 
