@@ -7,6 +7,7 @@ import AuthContext from "./store/AuthContext";
 import StateReducer from "./components/ReducerDemo/StateReducer";
 import StateReducerPayload from "./components/ReducerDemo/StateReducerPayload";
 import UseEffectDemo from "./components/EffectDemo/UseEffectDemo";
+import UseMemoDemo from "./components/MemoDemo/UseMemoDemo";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -20,7 +21,8 @@ function App() {
     // </AuthContext.Provider>
     // <StateReducer />
     // <StateReducerPayload />
-    <UseEffectDemo />
+    // <UseEffectDemo />
+    <UseMemoDemo />
   );
 }
 
