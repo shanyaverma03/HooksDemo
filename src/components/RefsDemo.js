@@ -1,35 +1,23 @@
-import { useState } from "react";
+import { useRef } from "react";
 
 import classes from "./RefsDemo.module.css";
 
 const RefsDemo = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-
-  const nameChangeHandler = (event) => {
-    setName(event.target.value);
-  };
-
-  const passwordChangeHandler = (event) => {
-    setPassword(event.target.value);
-  };
+  const name = useRef();
+  const password = useRef();
 
   const submitHandler = () => {
-    console.log("Welcome", name);
-    setName("");
-    setPassword("");
+    console.log("Welcome", name.current.value);
+    name.current.value = "";
+    password.current.value = "";
   };
   return (
     <div className={classes.wrapper}>
       <h1>Please enter details</h1>
       <label>Name</label>
-      <input type="text" onChange={nameChangeHandler} value={name} />
+      <input type="text" ref={name} />
       <label>Password</label>
-      <input
-        type="password"
-        onChange={passwordChangeHandler}
-        value={password}
-      />
+      <input type="password" ref={password} />
       <button onClick={submitHandler}>Submit</button>
     </div>
   );
