@@ -1,10 +1,24 @@
+import { useState } from "react";
+
 import "./App.css";
-import RefsDemo from "./components/RefsDemo";
-import State from "./components/State";
+import Header from "./components/ContextDemo/Header";
+import Homepage from "./components/ContextDemo/Homepage";
+import AuthContext from "./store/AuthContext";
 
 function App() {
-  // return <State />;
-  return <RefsDemo />;
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("isLoggedIn"))
+  );
+
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <Header />
+      <Homepage />
+    </AuthContext.Provider>
+  );
 }
 
 export default App;
+
+// return <State />;
+// return <RefsDemo />;
