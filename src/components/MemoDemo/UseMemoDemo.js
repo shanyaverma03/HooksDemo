@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 import "../State.css";
 
@@ -11,7 +11,9 @@ const UseMemoDemo = () => {
   const [number, setNumber] = useState(0);
   const [name, setName] = useState("");
 
-  const doubleNumber = findDoubleSlowly(number);
+  const doubleNumber = useMemo(() => {
+    return findDoubleSlowly(number);
+  }, [number]);
 
   return (
     <div className="wrapper">
