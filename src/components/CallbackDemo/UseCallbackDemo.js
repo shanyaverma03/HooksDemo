@@ -12,11 +12,14 @@ const UseCallbackDemo = () => {
 
   const doubleNumber = useMemo(() => {
     return findDoubleSlowly(number);
-  }, [number]);
+  }, [number]); //returned value is stored here
 
-  const getName = useCallback(() => {
-    return ["Player", name];
-  }, [name]); //function will change only when name changes
+  const getName = useCallback(
+    (message) => {
+      return ["Player", name, message];
+    },
+    [name]
+  ); //the entire function is stored here
 
   useEffect(() => {
     console.log("Name has been changed");
@@ -42,7 +45,7 @@ const UseCallbackDemo = () => {
           onChange={(event) => setName(event.target.value)}
         />
       </label>
-      {getName().map((name) => (
+      {getName("useCallback is different").map((name) => (
         <h1 key={name}> {name}</h1>
       ))}
     </div>
