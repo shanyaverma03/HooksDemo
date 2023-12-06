@@ -11,6 +11,7 @@ import UseMemoDemo from "./components/MemoDemo/UseMemoDemo";
 import ReferentialEquality from "./components/MemoDemo/ReferentialEquality";
 import UseCallbackDemo from "./components/CallbackDemo/UseCallbackDemo";
 import WithoutCustomHooks from "./components/customHooksDemo/WithoutCustomHooks";
+import CustomHooks from "./components/customHooksDemo/CustomHooks";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -28,7 +29,8 @@ function App() {
     // <UseMemoDemo />
     // <ReferentialEquality />
     // <UseCallbackDemo />
-    <WithoutCustomHooks />
+    // <WithoutCustomHooks />
+    <CustomHooks />
   );
 }
 
