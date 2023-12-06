@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-.wrapper button {
+button {
   background-color: #04aa6d; /* Green */
   border: none;
   color: white;
@@ -18,7 +18,7 @@
   margin: 1rem;
 }
 
-.wrapper button:hover {
+button:hover {
   background-color: #a4e8cf;
   color: black;
 }
