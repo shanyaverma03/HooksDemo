@@ -54,7 +54,13 @@ const WithoutCustomHooks = () => {
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     getPosts();
+    return () => {
+      console.log("cleanup");
+      abortController.abort();
+    };
   }, []);
 
   return (
