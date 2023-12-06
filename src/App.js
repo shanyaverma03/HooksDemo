@@ -9,6 +9,7 @@ import StateReducerPayload from "./components/ReducerDemo/StateReducerPayload";
 import UseEffectDemo from "./components/EffectDemo/UseEffectDemo";
 import UseMemoDemo from "./components/MemoDemo/UseMemoDemo";
 import ReferentialEquality from "./components/MemoDemo/ReferentialEquality";
+import UseCallbackDemo from "./components/CallbackDemo/UseCallbackDemo";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -24,7 +25,8 @@ function App() {
     // <StateReducerPayload />
     // <UseEffectDemo />
     // <UseMemoDemo />
-    <ReferentialEquality />
+    // <ReferentialEquality />
+    <UseCallbackDemo />
   );
 }
 
