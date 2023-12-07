@@ -14,6 +14,7 @@ import WithoutCustomHooks from "./components/customHooksDemo/WithoutCustomHooks"
 import CustomHooks from "./components/customHooksDemo/CustomHooks";
 import State from "./components/State";
 import UseEffectClassBased from "./components/EffectDemo/UseEffectClassBased";
+import HeaderClassBased from "./components/ContextDemo/HeaderClassBased";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -21,14 +22,14 @@ function App() {
   );
 
   return (
-    // <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-    //   <Header />
-    //   <Homepage />
-    // </AuthContext.Provider>
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      {/* <Header /> */}
+      <HeaderClassBased />
+      <Homepage />
+    </AuthContext.Provider>
     // <StateReducer />
     // <StateReducerPayload />
     // <UseEffectDemo />
-    <UseEffectClassBased />
     // <UseMemoDemo />
     // <ReferentialEquality />
     // <UseCallbackDemo />
