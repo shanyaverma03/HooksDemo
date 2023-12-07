@@ -20,7 +20,7 @@ const Header = () => {
       <div className={classes.nav}>
         <a href="/">Home</a>
         <a href="/">About</a>
-        <a href="/">{isLoggedIn && "Favourites"}</a>
+        {isLoggedIn && <a href="/">Favourites</a>}
       </div>
       <div>
         {!isLoggedIn && <button onClick={loginHandler}>Login</button>}
