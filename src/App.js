@@ -12,6 +12,8 @@ import ReferentialEquality from "./components/MemoDemo/ReferentialEquality";
 import UseCallbackDemo from "./components/CallbackDemo/UseCallbackDemo";
 import WithoutCustomHooks from "./components/customHooksDemo/WithoutCustomHooks";
 import CustomHooks from "./components/customHooksDemo/CustomHooks";
+import State from "./components/State";
+import UseEffectClassBased from "./components/EffectDemo/UseEffectClassBased";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -26,11 +28,13 @@ function App() {
     // <StateReducer />
     // <StateReducerPayload />
     // <UseEffectDemo />
+    <UseEffectClassBased />
     // <UseMemoDemo />
     // <ReferentialEquality />
     // <UseCallbackDemo />
     // <WithoutCustomHooks />
-    <CustomHooks />
+    // <CustomHooks />
+    // <State />
   );
 }
 
