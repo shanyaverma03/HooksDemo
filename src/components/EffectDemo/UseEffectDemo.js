@@ -6,19 +6,26 @@ const UseEffectDemo = () => {
   const [option, setOption] = useState("Posts");
 
   useEffect(() => {
-    getUsers(option);
+    //Create an instance of the AbortController API to abort the fetch request
+    const controller = new AbortController();
+    const signal = controller.signal;
+    getUsers(option, signal);
     console.log("in use effect");
-
     return () => {
       console.log("Cleaning up");
+      controller.abort();
     };
   }, [option]);
 
-  const getUsers = async (option) => {
-    const url = `https://jsonplaceholder.typicode.com/${option}/1`;
-    const response = await fetch(url);
-    const responseData = await response.json();
-    console.log(responseData);
+  const getUsers = async (option, signal) => {
+    try {
+      const url = `https://jsonplaceholder.typicode.com/${option}/1`;
+      const response = await fetch(url, { signal });
+      const responseData = await response.json();
+      console.log(responseData);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   return (
