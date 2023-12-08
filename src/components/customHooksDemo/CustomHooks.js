@@ -34,8 +34,8 @@ const CustomHooks = () => {
 
   useEffect(() => {
     const abortController = new AbortController();
-
-    getPosts();
+    const signal = abortController.signal;
+    getPosts(signal);
     return () => {
       console.log("cleanup");
       abortController.abort();

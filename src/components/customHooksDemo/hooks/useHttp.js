@@ -3,13 +3,14 @@ import { useState } from "react";
 const useHttp = (requestConfig, applyData) => {
   const [error, setError] = useState(null);
 
-  const sendRequest = async () => {
+  const sendRequest = async (signal) => {
     setError(null);
     try {
       const response = await fetch(requestConfig.url, {
         method: requestConfig.method ? requestConfig.method : "GET",
         headers: requestConfig.headers ? requestConfig.headers : {},
         body: requestConfig.body ? JSON.stringify(requestConfig.body) : null,
+        signal: signal && signal,
       });
       if (!response.ok) {
         console.log("not okay");
