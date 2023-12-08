@@ -6,11 +6,12 @@ const WithoutCustomHooks = () => {
   const [postList, setPostList] = useState([]);
   const [error, setError] = useState(null);
 
-  const getPosts = async () => {
+  const getPosts = async (signal) => {
     setError(null);
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/posts",
+        signal
       );
       if (!response.ok) {
         console.log("not okay");
@@ -55,8 +56,8 @@ const WithoutCustomHooks = () => {
 
   useEffect(() => {
     const abortController = new AbortController();
-
-    getPosts();
+    const signal = abortController.signal;
+    getPosts(signal);
     return () => {
       console.log("cleanup");
       abortController.abort();
